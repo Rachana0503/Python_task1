@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products Database Display</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 60%;
+        }
+        th, td {
+            text-align: left;
+            padding: 6px;
+            
+        }
+        th {
+            background-color: #f1ebeb;
+            color: #110e10;
+        }
+        tr:nth-child(even) {
+            background-color: #be9797;
+        }
+        tr:hover {
+            background-color: #a22626;
+        }
+    </style>
+</head>
+<body>
+    <h1>Products Database Display</h1>
+    <table border="solid balck 1px">
+        <tr>
+            <th>product_number</th>
+            <th>date_of_purchase</th>
+            <th>product_type</th>
+            <th>Price</th>
+            <!-- Add more table headers for each column in your table -->
+        </tr>
+        {% for row in data %}
+            <tr>
+                {% for i in row %}
+                <td>{{ i }}</td>
+                {% endfor %}
+               
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
