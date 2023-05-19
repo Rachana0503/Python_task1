@@ -1,14 +1,10 @@
-FROM node:latest
+ROM python:3.8-slim-buster
 
-# Create app directory
-WORKDIR /d/Documents/GitHub/basic-banking-system
+WORKDIR /app
 
-COPY package*.json ./
-
-RUN npm install
-
-EXPOSE 3000
+COPY requirements.txt requirements.txt
+RUN pip3 install -r requirements.txt
 
 COPY . .
 
-CMD [ "node", "app.js" ]
+CMD ["python3", "-m" , "flask", "run", "--host=0.0.0.0"]
